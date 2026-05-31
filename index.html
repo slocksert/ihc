@@ -10,11 +10,44 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --bg: #f5f5f5;
+      --surface: #ffffff;
+      --surface-subtle: #efefef;
+      --text: #1a1a1a;
+      --text-secondary: #4b5563;
+      --text-muted: #6b7280;
+      --accent: #a855f7;
+      --accent-bg: #f3e8ff;
+      --border: #d1d5db;
+    }
+
+    body.high-contrast {
+      --bg: #000000;
+      --surface: #1a1a1a;
+      --surface-subtle: #1a1a1a;
+      --text: #ffffff;
+      --text-secondary: #e5e5e5;
+      --text-muted: #cccccc;
+      --accent: #ffff00;
+      --accent-bg: #333300;
+      --border: #ffffff;
+    }
+
+    body.high-contrast .btn-details {
+      background: #333333;
+      color: var(--accent);
+    }
+
+    body.high-contrast .btn-details:hover {
+      background: #555500;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background: #f5f5f5;
+      background: var(--bg);
       min-height: 100vh;
-      color: #1a1a1a;
+      color: var(--text);
     }
 
     .app {
@@ -23,10 +56,9 @@
       padding: 24px 16px 40px;
     }
 
-    /* Header */
     .header { margin-bottom: 20px; }
-    .header h1 { font-size: 32px; font-weight: 800; color: #1a1a1a; }
-    .header .subtitle { font-size: 14px; font-weight: 500; color: #a855f7; margin-top: 2px; }
+    .header h1 { font-size: 32px; font-weight: 800; color: var(--text); }
+    .header .subtitle { font-size: 14px; font-weight: 500; color: var(--accent); margin-top: 2px; }
 
     .today-btn {
       display: inline-flex;
@@ -34,18 +66,17 @@
       gap: 4px;
       margin-top: 14px;
       padding: 6px 12px;
-      border: 1.5px solid #d1d5db;
+      border: 1.5px solid var(--border);
       border-radius: 8px;
-      background: white;
+      background: var(--surface);
       font-size: 13px;
       font-weight: 500;
-      color: #374151;
+      color: var(--text);
       cursor: pointer;
     }
 
-    /* Summary Card */
     .summary-card {
-      background: white;
+      background: var(--surface);
       border-radius: 16px;
       padding: 20px;
       margin-bottom: 28px;
@@ -59,26 +90,26 @@
       right: 16px;
       font-size: 12px;
       font-weight: 600;
-      color: #a855f7;
+      color: var(--accent);
     }
 
     .summary-icon {
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: #f3e8ff;
+      background: var(--accent-bg);
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 10px;
-      color: #a855f7;
+      color: var(--accent);
     }
 
     .summary-label {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.06em;
-      color: #a855f7;
+      color: var(--accent);
       text-transform: uppercase;
       margin-bottom: 4px;
     }
@@ -86,17 +117,15 @@
     .summary-number {
       font-size: 40px;
       font-weight: 800;
-      color: #1a1a1a;
+      color: var(--text);
       line-height: 1;
     }
 
-    /* Section Header */
-    .section-title { font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
-    .section-desc { font-size: 13px; color: #a855f7; font-weight: 500; margin-bottom: 16px; line-height: 1.5; }
+    .section-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .section-desc { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 16px; line-height: 1.5; }
 
-    /* Travel Card */
     .travel-card {
-      background: #efefef;
+      background: var(--surface-subtle);
       border-radius: 16px;
       padding: 18px;
       margin-bottom: 16px;
@@ -106,7 +135,7 @@
     .travel-card-title {
       font-size: 16px;
       font-weight: 700;
-      color: #1a1a1a;
+      color: var(--text);
       margin-bottom: 14px;
       display: flex;
       align-items: center;
@@ -117,11 +146,11 @@
       width: 38px;
       height: 38px;
       border-radius: 50%;
-      background: #f3e8ff;
+      background: var(--accent-bg);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #a855f7;
+      color: var(--accent);
       flex-shrink: 0;
     }
 
@@ -130,13 +159,12 @@
       align-items: center;
       gap: 8px;
       font-size: 13px;
-      color: #4b5563;
+      color: var(--text-secondary);
       margin-bottom: 8px;
     }
 
-    .travel-info-row i { color: #a855f7; flex-shrink: 0; }
+    .travel-info-row i { color: var(--accent); flex-shrink: 0; }
 
-    /* Progress Bar */
     .progress-wrapper { margin-top: 14px; }
 
     .progress-header {
@@ -144,40 +172,39 @@
       justify-content: flex-end;
       font-size: 11px;
       font-weight: 600;
-      color: #6b7280;
+      color: var(--text-muted);
       margin-bottom: 4px;
     }
 
     .progress-bar-bg {
       width: 100%;
       height: 8px;
-      background: #d1d5db;
+      background: var(--border);
       border-radius: 99px;
       overflow: hidden;
     }
 
     .progress-bar-fill {
       height: 100%;
-      background: #a855f7;
+      background: var(--accent);
       border-radius: 99px;
       transition: width 0.3s ease;
     }
 
     .progress-label {
       font-size: 11px;
-      color: #6b7280;
+      color: var(--text-muted);
       text-align: center;
       margin-top: 6px;
     }
 
-    /* Botão Detalhes */
     .btn-details {
       display: block;
       width: fit-content;
       margin: 14px auto 0;
       padding: 8px 28px;
       background: #e9e9e9;
-      color: #a855f7;
+      color: var(--accent);
       font-size: 14px;
       font-weight: 600;
       border: none;
@@ -187,9 +214,38 @@
     }
 
     .btn-details:hover { background: #e0d0fb; }
+
+    .contrast-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 1000;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: background 0.2s;
+    }
+
+    .contrast-btn:hover { background: var(--accent-bg); }
   </style>
 </head>
 <body>
+  <button
+    class="contrast-btn"
+    id="contrast-btn"
+    aria-label="Ativar alto contraste"
+    aria-pressed="false"
+  >
+    <i data-lucide="sun" width="20" height="20"></i>
+  </button>
   <div class="app" id="app"></div>
   <script>
     const trips = [
@@ -292,6 +348,30 @@
     }
 
     render();
+
+    function initContrast() {
+      const btn = document.getElementById('contrast-btn');
+
+      function applyContrast(active) {
+        document.body.classList.toggle('high-contrast', active);
+        btn.setAttribute('aria-pressed', String(active));
+        btn.setAttribute('aria-label', active ? 'Desativar alto contraste' : 'Ativar alto contraste');
+        btn.innerHTML = active
+          ? '<i data-lucide="moon" width="20" height="20"></i>'
+          : '<i data-lucide="sun" width="20" height="20"></i>';
+        lucide.createIcons();
+      }
+
+      btn.addEventListener('click', () => {
+        const next = !document.body.classList.contains('high-contrast');
+        localStorage.setItem('highContrast', String(next));
+        applyContrast(next);
+      });
+
+      applyContrast(localStorage.getItem('highContrast') === 'true');
+    }
+
+    initContrast();
   </script>
 </body>
 </html>
