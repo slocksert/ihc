@@ -1,0 +1,292 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f5f5;
+      --surface: #ffffff;
+      --surface-subtle: #efefef;
+      --text: #1a1a1a;
+      --text-secondary: #4b5563;
+      --text-muted: #6b7280;
+      --accent: #a855f7;
+      --accent-bg: #f3e8ff;
+      --border: #d1d5db;
+    }
+
+    body.high-contrast {
+      --bg: #000000;
+      --surface: #1a1a1a;
+      --surface-subtle: #1a1a1a;
+      --text: #ffffff;
+      --text-secondary: #e5e5e5;
+      --text-muted: #cccccc;
+      --accent: #ffff00;
+      --accent-bg: #333300;
+      --border: #ffffff;
+    }
+
+    body.high-contrast .btn-details {
+      background: #333333;
+      color: var(--accent);
+    }
+
+    body.high-contrast .btn-details:hover {
+      background: #555500;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      color: var(--text);
+    }
+
+    .app {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    .header { margin-bottom: 20px; }
+    .header h1 { font-size: 32px; font-weight: 800; color: var(--text); }
+    .header .subtitle { font-size: 14px; font-weight: 500; color: var(--accent); margin-top: 2px; }
+
+    .today-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 14px;
+      padding: 6px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .summary-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      position: relative;
+    }
+
+    .summary-card .badge {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .summary-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    .summary-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .summary-number {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .section-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .section-desc { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 16px; line-height: 1.5; }
+
+    .travel-card {
+      background: var(--surface-subtle);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .travel-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .travel-card-title .route-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--accent-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .travel-info-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .travel-info-row i { color: var(--accent); flex-shrink: 0; }
+
+    .progress-wrapper { margin-top: 14px; }
+
+    .progress-header {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 8px;
+      background: var(--border);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 99px;
+      transition: width 0.3s ease;
+    }
+
+    .progress-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    .btn-details {
+      display: block;
+      width: fit-content;
+      margin: 14px auto 0;
+      padding: 8px 28px;
+      background: #e9e9e9;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-details:hover { background: #e0d0fb; }
+
+    .contrast-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 1000;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: background 0.2s;
+    }
+
+    .contrast-btn:hover { background: var(--accent-bg); }
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 10px 20px;
+  background: var(--accent);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+body.high-contrast .skip-link {
+  background: var(--accent);
+  color: #000000;
+}
+
+button,
+[role="button"],
+[tabindex="0"] {
+  cursor: pointer;
+}
+
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.contrast-btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+.travel-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 16px;
+}
+
+body.high-contrast *:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
