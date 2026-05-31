@@ -8,9 +8,21 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-  <link rel="stylesheet" href="keyboard-navigation.css" />
 </head>
 <body>
+
+  <div class="font-size-controls" role="group" aria-label="Controles de tamanho de fonte">
+    <button
+      class="font-size-btn"
+      id="font-decrease"
+      aria-label="Diminuir tamanho da fonte"
+    >A−</button>
+    <button
+      class="font-size-btn"
+      id="font-increase"
+      aria-label="Aumentar tamanho da fonte"
+    >A+</button>
+  </div>
 
   <button
     class="contrast-btn"
@@ -162,7 +174,32 @@
 
     initContrast();
 
-    // Suporte a Enter/Espaço em elementos com role="button" ou tabindex
+    function initFontSize() {
+      const STEP  = 0.1;  
+      const MIN   = 0.8;  
+      const MAX   = 1.4;  
+
+      const btnIncrease = document.getElementById('font-increase');
+      const btnDecrease = document.getElementById('font-decrease');
+
+      let scale = parseFloat(localStorage.getItem('fontScale')) || 1;
+
+      function applyScale(value) {
+        scale = Math.min(MAX, Math.max(MIN, value));
+        document.documentElement.style.setProperty('--font-scale', scale);
+        localStorage.setItem('fontScale', scale);
+        btnDecrease.disabled = scale <= MIN;
+        btnIncrease.disabled = scale >= MAX;
+      }
+
+      btnIncrease.addEventListener('click', () => applyScale(scale + STEP));
+      btnDecrease.addEventListener('click', () => applyScale(scale - STEP));
+
+      applyScale(scale);
+    }
+
+    initFontSize();
+
     document.addEventListener('keydown', (e) => {
       const el = document.activeElement;
       if ((e.key === 'Enter' || e.key === ' ') && el.matches('[role="button"], [tabindex="0"]')) {

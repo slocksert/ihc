@@ -290,3 +290,90 @@ body.high-contrast *:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
+
+:root {
+  --font-scale: 1;
+}
+
+
+html {
+  font-size: calc(16px * var(--font-scale));
+}
+
+body       { font-size: 1rem; }
+.header h1 { font-size: 2rem; }
+.header .subtitle { font-size: 0.875rem; }
+.today-btn { font-size: 0.8125rem; }
+.summary-label { font-size: 0.6875rem; }
+.summary-number { font-size: 2.5rem; }
+.section-title { font-size: 1.25rem; }
+.section-desc { font-size: 0.8125rem; }
+.travel-card-title { font-size: 1rem; }
+.travel-info-row { font-size: 0.8125rem; }
+.progress-header { font-size: 0.6875rem; }
+.progress-label { font-size: 0.6875rem; }
+.btn-details { font-size: 0.875rem; }
+.summary-card .badge { font-size: 0.75rem; }
+
+.font-size-controls {
+  position: fixed;
+  top: 16px;
+  right: 72px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 99px;
+  padding: 4px 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.font-size-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+  line-height: 1;
+}
+
+.font-size-btn:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.font-size-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.font-size-btn:disabled:hover {
+  background: transparent;
+  color: var(--text);
+}
+
+.font-size-btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+body.high-contrast .font-size-controls {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+body.high-contrast .font-size-btn:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
