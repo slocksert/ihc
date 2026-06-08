@@ -1,11 +1,17 @@
 # ihc
 
+## Deploy
+
+```
+https://ihc.slocksert.dev/
+```
+
 ## Descrição
 Implementamos uma tela da nossa aplicação onde o motorista pode verificar algumas estatísticas e a viagens que tem para o dia atual
 
 ## Como executar
 ### Executar no bash
-```
+```bash
 python -m http.server 8080
 ```
 
