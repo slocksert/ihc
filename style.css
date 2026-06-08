@@ -162,6 +162,13 @@
       display: block;
     }
 
+    .wheel-canvas-3d {
+      width: 38px;
+      height: 38px;
+      display: block;
+      border-radius: 50%;
+    }
+
     .progress-wrapper { margin-top: 14px; }
 
     .progress-header {
