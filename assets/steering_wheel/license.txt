@@ -1,0 +1,11 @@
+Model Information:
+* title:	Classic Steering Wheel
+* source:	https://sketchfab.com/3d-models/classic-steering-wheel-ec505b832bfa4061b6f9e86c0560f474
+* author:	Kryox Shade (https://sketchfab.com/kryoxshade)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Classic Steering Wheel" (https://sketchfab.com/3d-models/classic-steering-wheel-ec505b832bfa4061b6f9e86c0560f474) by Kryox Shade (https://sketchfab.com/kryoxshade) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
