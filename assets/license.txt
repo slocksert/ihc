@@ -1,0 +1,11 @@
+Model Information:
+* title:	Suzuki Eeco Cargo - 3D Model (PBR, Real-Time)
+* source:	https://sketchfab.com/3d-models/suzuki-eeco-cargo-3d-model-pbr-real-time-7a392dd124ff437eb0a50396a59f7f0a
+* author:	MidaZ_3D (https://sketchfab.com/MidaZ_3D)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Suzuki Eeco Cargo - 3D Model (PBR, Real-Time)" (https://sketchfab.com/3d-models/suzuki-eeco-cargo-3d-model-pbr-real-time-7a392dd124ff437eb0a50396a59f7f0a) by MidaZ_3D (https://sketchfab.com/MidaZ_3D) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

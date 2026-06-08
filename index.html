@@ -8,6 +8,15 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
 </head>
 <body>
   <div vw class="enabled">
@@ -84,7 +93,7 @@
           </div>
 
           <div class="travel-info-row">
-            <i data-lucide="car" width="16" height="16" aria-hidden="true"></i>
+            <canvas id="car-canvas-3d-${trip.id}" class="car-canvas-3d" width="16" height="16" aria-hidden="true"></canvas>
             <span>${trip.driver} - ${trip.vehicle} • ${trip.plate}</span>
           </div>
 
@@ -157,6 +166,48 @@
     }
 
     render();
+
+    async function initCarModel() {
+      const canvases = document.querySelectorAll('.car-canvas-3d');
+      if (!canvases.length) return;
+
+      const { WebGLRenderer, Scene, PerspectiveCamera, AmbientLight, DirectionalLight, Box3, Vector3 } = await import('three');
+      const { GLTFLoader } = await import('three/addons/loaders/GLTFLoader.js');
+
+      const loader = new GLTFLoader();
+
+      canvases.forEach((canvas) => {
+        const renderer = new WebGLRenderer({ canvas, alpha: true, antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(32, 32);
+
+        const scene = new Scene();
+        const camera = new PerspectiveCamera(45, 1, 0.1, 100);
+        camera.position.set(0, 1.2, 3);
+        camera.lookAt(0, 0.2, 0);
+
+        scene.add(new AmbientLight(0xffffff, 1.2));
+        const dir = new DirectionalLight(0xffffff, 1.5);
+        dir.position.set(3, 5, 3);
+        scene.add(dir);
+
+        loader.load('assets/scene.gltf', (gltf) => {
+          const model = gltf.scene.clone();
+          const box = new Box3().setFromObject(model);
+          const center = box.getCenter(new Vector3());
+          const size = box.getSize(new Vector3());
+          model.position.sub(center);
+          model.scale.setScalar(1.8 / Math.max(size.x, size.y, size.z));
+          scene.add(model);
+
+          gsap.to(model.rotation, { y: Math.PI * 2, duration: 8, repeat: -1, ease: 'none' });
+        });
+
+        renderer.setAnimationLoop(() => renderer.render(scene, camera));
+      });
+    }
+
+    initCarModel();
 
     function initContrast() {
       const btn = document.getElementById('contrast-btn');

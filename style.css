@@ -155,6 +155,13 @@
 
     .travel-info-row i { color: var(--accent); flex-shrink: 0; }
 
+    .car-canvas-3d {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      display: block;
+    }
+
     .progress-wrapper { margin-top: 14px; }
 
     .progress-header {
